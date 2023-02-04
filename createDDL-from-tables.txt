@@ -1,0 +1,10 @@
+for i in `cat /home/test6/databases.txt`
+do
+echo $i; hive -e "use $i; show tables;" >> /home/test6/tables.txt
+	
+	for j in `cat /home/test6/tables.txt`
+	do
+	echo $j ;hive -e "show create table $j;" >> /home/test6/ddltables.txt
+	done
+	echo
+done

@@ -1,0 +1,6 @@
+hive -e "show databases;" >> /home/test6/databases.txt
+
+for i in `cat /home/test6/databases.txt`
+do
+echo $i; hive -e "use $i; show tables;" >> /home/test6/tables.txt
+done
